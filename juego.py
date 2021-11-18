@@ -55,3 +55,23 @@ valorJ1 = valores_cartas[indiceJ1]
 valorJ2 = valores_cartas[indiceJ2]
 valorJT = valorJ1 + valorJ2
 print("Este es el valor de sus cartas: ", valorJT)
+
+while True:
+    NcartaB1 = random.randrange(0, 51)
+    if NcartaB1 != NcartaJ1 and NcartaB1 != NcartaJ2:
+        cartaB1 = barajar[NcartaB1]
+        break
+
+while True:
+    NcartaB2 = random.randrange(0, 51)
+    if NcartaB2 != NcartaJ1 and NcartaB2 != NcartaJ2 and NcartaB2 != NcartaB1:
+        cartaB2 = barajar[NcartaB2]
+        break
+
+print("Estas son las cartas de la banca: ", cartaB1, cartaB2)
+indiceB1 = claves_cartas.index(cartaB1)
+indiceB2 = claves_cartas.index(cartaB2)
+valorB1 = valores_cartas[indiceB1]
+valorB2 = valores_cartas[indiceB2]
+valorBT = valorB1 + valorB2
+print("Este es el valor de las cartas de la banca: ", valorBT)
