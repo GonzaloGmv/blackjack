@@ -41,7 +41,7 @@ while True:
     except:
         pass
     else:
-        if 0 <= NcartaJ2 <= 51:
+        if NcartaJ2 != NcartaJ1 and 0 <= NcartaJ2 <= 51:
             break
 cartaJ1 = barajar[NcartaJ1]
 cartaJ2 = barajar[NcartaJ2]
