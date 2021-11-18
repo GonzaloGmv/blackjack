@@ -1,4 +1,5 @@
 from random import shuffle
+
 cartas = { 
     chr(0x1f0a1): 11, 
     chr(0x1f0a2): 2, 
@@ -16,11 +17,10 @@ cartas = {
 } 
 print("Estas son las cartas y sus valores: ", cartas)
 claves_cartas = list(cartas.keys())
-valores_cartas=list(cartas.values())
+barajar = list(cartas.keys())
+valores_cartas = list(cartas.values())
+shuffle(barajar)
 
-shuffle(claves_cartas)
-print(claves_cartas)
-diferente = False
 while True:
     carta1 = input("Elija una carta sin mirarla: ")
     try:
@@ -30,7 +30,6 @@ while True:
     else:
         if 0 <= carta1 <= 12:
             break
-
 while True:
     carta2 = input("Elija una segunda carta sin mirarla: ")
     try:
@@ -40,5 +39,11 @@ while True:
     else:
         if carta2 != carta1 and 0 <= carta2 <= 12:
             break
+print("Estas son sus cartas: ", barajar[carta1], barajar[carta2])
 
-print("Estas son sus cartas: ", claves_cartas[carta1], claves_cartas[carta2])
+indice1 = claves_cartas.index(barajar[carta1])
+indice2 = claves_cartas.index(barajar[carta2])
+valor1 = valores_cartas[indice1]
+valor2 = valores_cartas[indice2]
+valorT = valor1 + valor2
+print("Este es el valor de sus cartas: ", valorT)
