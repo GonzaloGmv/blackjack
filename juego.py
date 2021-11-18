@@ -1,5 +1,6 @@
 from random import shuffle
-
+import random
+#Diccionario
 cartas = { 
     chr(0x1f0a1): 11, 
     chr(0x1f0a2): 2, 
@@ -16,34 +17,41 @@ cartas = {
     chr(0x1f0ae): 10,
 } 
 print("Estas son las cartas y sus valores: ", cartas)
+
+#Paso el diccionario a listas
 claves_cartas = list(cartas.keys())
-barajar = list(cartas.keys())
 valores_cartas = list(cartas.values())
+barajar = claves_cartas * 4
 shuffle(barajar)
 
+#Eleccion de cartas
 while True:
-    carta1 = input("Elija una carta sin mirarla: ")
+    NcartaJ1 = input("Elija una carta sin mirarla: ")
     try:
-        carta1 = int(carta1)
+        NcartaJ1 = int(NcartaJ1)
     except:
         pass
     else:
-        if 0 <= carta1 <= 12:
+        if 0 <= NcartaJ1 <= 51:
             break
 while True:
-    carta2 = input("Elija una segunda carta sin mirarla: ")
+    NcartaJ2 = input("Elija una segunda carta sin mirarla: ")
     try:
-        carta2 = int(carta2)
+        NcartaJ2 = int(NcartaJ2)
     except:
         pass
     else:
-        if carta2 != carta1 and 0 <= carta2 <= 12:
+        if 0 <= NcartaJ2 <= 51:
             break
-print("Estas son sus cartas: ", barajar[carta1], barajar[carta2])
+cartaJ1 = barajar[NcartaJ1]
+cartaJ2 = barajar[NcartaJ2]
+print("Estas son sus cartas: ", cartaJ1, cartaJ2)
 
-indice1 = claves_cartas.index(barajar[carta1])
-indice2 = claves_cartas.index(barajar[carta2])
-valor1 = valores_cartas[indice1]
-valor2 = valores_cartas[indice2]
-valorT = valor1 + valor2
-print("Este es el valor de sus cartas: ", valorT)
+#Calculo el indice comparando elementos y pasando ese indice a la lista de valores
+indiceJ1 = claves_cartas.index(cartaJ1)
+indiceJ2 = claves_cartas.index(cartaJ2)
+#Calculo el valor comparando indices
+valorJ1 = valores_cartas[indiceJ1]
+valorJ2 = valores_cartas[indiceJ2]
+valorJT = valorJ1 + valorJ2
+print("Este es el valor de sus cartas: ", valorJT)
