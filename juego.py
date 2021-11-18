@@ -24,6 +24,7 @@ valores_cartas = list(cartas.values())
 barajar = claves_cartas * 4
 shuffle(barajar)
 
+#JUGADOR
 #Eleccion de cartas
 while True:
     NcartaJ1 = input("Elija una carta sin mirarla: ")
@@ -46,7 +47,6 @@ while True:
 cartaJ1 = barajar[NcartaJ1]
 cartaJ2 = barajar[NcartaJ2]
 print("Estas son sus cartas: ", cartaJ1, cartaJ2)
-
 #Calculo el indice comparando elementos y pasando ese indice a la lista de valores
 indiceJ1 = claves_cartas.index(cartaJ1)
 indiceJ2 = claves_cartas.index(cartaJ2)
@@ -56,6 +56,8 @@ valorJ2 = valores_cartas[indiceJ2]
 valorJT = valorJ1 + valorJ2
 print("Este es el valor de sus cartas: ", valorJT)
 
+#BANCA
+#Seleccion de cartas
 while True:
     NcartaB1 = random.randrange(0, 51)
     if NcartaB1 != NcartaJ1 and NcartaB1 != NcartaJ2:
@@ -67,8 +69,8 @@ while True:
     if NcartaB2 != NcartaJ1 and NcartaB2 != NcartaJ2 and NcartaB2 != NcartaB1:
         cartaB2 = barajar[NcartaB2]
         break
-
 print("Estas son las cartas de la banca: ", cartaB1, cartaB2)
+#Calculo de valores como con el jugador
 indiceB1 = claves_cartas.index(cartaB1)
 indiceB2 = claves_cartas.index(cartaB2)
 valorB1 = valores_cartas[indiceB1]
