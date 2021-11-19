@@ -1,5 +1,5 @@
 from random import shuffle
-import random, repartir, ganador
+import repartir, ganador
 
 #Diccionario
 cartas = { 
@@ -31,7 +31,7 @@ print("Se barajan las cartas...")
 
 #JUGADOR
 #Eleccion de cartas
-NcartaJ1 = repartir.jugador(52)
+NcartaJ1 = repartir.jugador("")
 print("Ahora escoja otra carta")
 NcartaJ2 = repartir.jugador(NcartaJ1)
 cartaJ1 = barajar[NcartaJ1]
@@ -48,7 +48,7 @@ print("Este es el valor de sus cartas: ", valorJT)
 
 #BANCA
 #Seleccion de cartas
-NcartaB1 = repartir.banca(NcartaJ1, NcartaJ2, 52)
+NcartaB1 = repartir.banca(NcartaJ1, NcartaJ2, "")
 NcartaB2 = repartir.banca(NcartaJ1, NcartaJ2, NcartaB1)
 cartaB1 = barajar[NcartaB1]
 cartaB2 = barajar[NcartaB2]

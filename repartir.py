@@ -13,7 +13,7 @@ def jugador(ANTERIOR):
 
 def banca(NCARTAJ1, NCARTAJ2, ANTERIOR):
     while True:
-        carta_banca = random.randrange(0, 51)
+        carta_banca = random.randrange(0, 52)
         if carta_banca != NCARTAJ1 and carta_banca != NCARTAJ2 and carta_banca != ANTERIOR:
             break
     return carta_banca
