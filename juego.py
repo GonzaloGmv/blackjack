@@ -1,5 +1,5 @@
 from random import shuffle
-import random, eleccion
+import random, repartir, ganador
 #Diccionario
 cartas = { 
     chr(0x1f0a1): 11, 
@@ -26,9 +26,9 @@ shuffle(barajar)
 
 #JUGADOR0
 #Eleccion de cartas
-NcartaJ1 = eleccion.jugador(52)
+NcartaJ1 = repartir.jugador(52)
 print("Ahora escoja otra carta")
-NcartaJ2 = eleccion.jugador(NcartaJ1)
+NcartaJ2 = repartir.jugador(NcartaJ1)
 cartaJ1 = barajar[NcartaJ1]
 cartaJ2 = barajar[NcartaJ2]
 print("Estas son sus cartas: ", cartaJ1, cartaJ2)
@@ -43,8 +43,8 @@ print("Este es el valor de sus cartas: ", valorJT)
 
 #BANCA
 #Seleccion de cartas
-NcartaB1 = eleccion.banca(NcartaJ1, NcartaJ2, 52)
-NcartaB2 = eleccion.banca(NcartaJ1, NcartaJ2, NcartaB1)
+NcartaB1 = repartir.banca(NcartaJ1, NcartaJ2, 52)
+NcartaB2 = repartir.banca(NcartaJ1, NcartaJ2, NcartaB1)
 cartaB1 = barajar[NcartaB1]
 cartaB2 = barajar[NcartaB2]
 print("Estas son las cartas de la banca: ", cartaB1, cartaB2)
@@ -55,3 +55,6 @@ valorB1 = valores_cartas[indiceB1]
 valorB2 = valores_cartas[indiceB2]
 valorBT = valorB1 + valorB2
 print("Este es el valor de las cartas de la banca: ", valorBT)
+
+#Se comparan las cartas para ver quien gana
+ganador.comparar(valorJT, valorBT)
