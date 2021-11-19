@@ -1,5 +1,5 @@
 from random import shuffle
-import random
+import random, eleccion
 #Diccionario
 cartas = { 
     chr(0x1f0a1): 11, 
@@ -24,26 +24,11 @@ valores_cartas = list(cartas.values())
 barajar = claves_cartas * 4
 shuffle(barajar)
 
-#JUGADOR
+#JUGADOR0
 #Eleccion de cartas
-while True:
-    NcartaJ1 = input("Elija una carta sin mirarla: ")
-    try:
-        NcartaJ1 = int(NcartaJ1)
-    except:
-        pass
-    else:
-        if 0 <= NcartaJ1 <= 51:
-            break
-while True:
-    NcartaJ2 = input("Elija una segunda carta sin mirarla: ")
-    try:
-        NcartaJ2 = int(NcartaJ2)
-    except:
-        pass
-    else:
-        if NcartaJ2 != NcartaJ1 and 0 <= NcartaJ2 <= 51:
-            break
+NcartaJ1 = eleccion.elegir(52)
+print("Ahora escoja otra carta")
+NcartaJ2 = eleccion.elegir(NcartaJ1)
 cartaJ1 = barajar[NcartaJ1]
 cartaJ2 = barajar[NcartaJ2]
 print("Estas son sus cartas: ", cartaJ1, cartaJ2)
@@ -63,7 +48,6 @@ while True:
     if NcartaB1 != NcartaJ1 and NcartaB1 != NcartaJ2:
         cartaB1 = barajar[NcartaB1]
         break
-
 while True:
     NcartaB2 = random.randrange(0, 51)
     if NcartaB2 != NcartaJ1 and NcartaB2 != NcartaJ2 and NcartaB2 != NcartaB1:
