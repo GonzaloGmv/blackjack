@@ -26,9 +26,9 @@ shuffle(barajar)
 
 #JUGADOR0
 #Eleccion de cartas
-NcartaJ1 = eleccion.elegir(52)
+NcartaJ1 = eleccion.jugador(52)
 print("Ahora escoja otra carta")
-NcartaJ2 = eleccion.elegir(NcartaJ1)
+NcartaJ2 = eleccion.jugador(NcartaJ1)
 cartaJ1 = barajar[NcartaJ1]
 cartaJ2 = barajar[NcartaJ2]
 print("Estas son sus cartas: ", cartaJ1, cartaJ2)
@@ -43,16 +43,10 @@ print("Este es el valor de sus cartas: ", valorJT)
 
 #BANCA
 #Seleccion de cartas
-while True:
-    NcartaB1 = random.randrange(0, 51)
-    if NcartaB1 != NcartaJ1 and NcartaB1 != NcartaJ2:
-        cartaB1 = barajar[NcartaB1]
-        break
-while True:
-    NcartaB2 = random.randrange(0, 51)
-    if NcartaB2 != NcartaJ1 and NcartaB2 != NcartaJ2 and NcartaB2 != NcartaB1:
-        cartaB2 = barajar[NcartaB2]
-        break
+NcartaB1 = eleccion.banca(NcartaJ1, NcartaJ2, 52)
+NcartaB2 = eleccion.banca(NcartaJ1, NcartaJ2, NcartaB1)
+cartaB1 = barajar[NcartaB1]
+cartaB2 = barajar[NcartaB2]
 print("Estas son las cartas de la banca: ", cartaB1, cartaB2)
 #Calculo de valores como con el jugador
 indiceB1 = claves_cartas.index(cartaB1)
