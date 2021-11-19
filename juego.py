@@ -1,5 +1,6 @@
 from random import shuffle
 import random, repartir, ganador
+
 #Diccionario
 cartas = { 
     chr(0x1f0a1): 11, 
@@ -16,15 +17,19 @@ cartas = {
     chr(0x1f0ad): 10,
     chr(0x1f0ae): 10,
 } 
-print("Estas son las cartas y sus valores: ", cartas)
+#Cada carta y su valor
+for carta, valor in cartas.items():
+    print("La carta {} vale {}".format(carta, valor))
+#Para imprimir esto, he mirado el código que se encontraba en el archivo Guía/23_Diccionario/23__01_Introduccion.py y he copiado esa parte, ya que está más ordenado que como lo había hecho yo
 
 #Paso el diccionario a listas
 claves_cartas = list(cartas.keys())
 valores_cartas = list(cartas.values())
 barajar = claves_cartas * 4
 shuffle(barajar)
+print("Se barajan las cartas...")
 
-#JUGADOR0
+#JUGADOR
 #Eleccion de cartas
 NcartaJ1 = repartir.jugador(52)
 print("Ahora escoja otra carta")
